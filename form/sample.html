@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainer Name Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Trainer Name Validation</h2>
+  <input type="text" id="trainerName" placeholder="Enter Trainer Name">
+
+  <script>
+    document.getElementById("trainerName").addEventListener("input", function () {
+      var trainerNameInput = document.getElementById("trainerName");
+      var errorMessageElement = document.getElementById("error-message");
+
+      var trainerNameValue = trainerNameInput.value;
+      var allowedCharsRegex = /^[a-zA-Z.\s]+$/;
+
+      if (!allowedCharsRegex.test(trainerNameValue)) {
+        trainerNameInput.value = trainerNameValue.replace(/[^a-zA-Z.\s]/g, "");
+        console.log("Only alphabetic characters, spaces, and periods are allowed")
+      } 
+    });
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../form/formNew.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../src/images/Nav logo.png" class="p-3 h-3.7rem" alt="" />
+        </a>
+
+        <div class="navbar-nav" style="margin-right: 25px">
+          <a
+            class="nav-link text-dark cursor-pointer fw-bold"
+            id="titles"
+            href="#"
+            >Home</a
+          >
+          <a
+            class="nav-link text-dark cursor-pointer fw-bold"
+            id="titles"
+            href="#"
+            >My Courses</a
+          >
+          <a
+            class="nav-link text-dark cursor-pointer about fw-bold"
+            id="titles"
+            href="#"
+            >Courses</a
+          >
+        </div>
+      </div>
+    </nav> -->
+    <div class="banner"></div>
+    <div class="container-div">
+      <div>
+        <form action="" id="form">
+          <div class="screen-body">
+            <div class="screen-body-item left">
+              <div class="course-name">
+                <input
+                  class="app-form-control"
+                  placeholder="Course Name"
+                  id="courseName"
+                  value=""
+                  type="text"
+                  maxlength="100"
+                />
+                <div class="flex-row textarea-flex">
+                  <div class="error"></div>
+                  <div class="flex-row" style="color: black" id="courseFull">
+                    <span class="span" id="count-course"></span>
+                    <span class="span" id="count-course-target">/100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="app-flex">
+                <div class="app-form-group small-input flex">
+                  <input
+                    class="app-form-control"
+                    placeholder="Start Date"
+                    id="startDate"
+                    type="text"
+                    name="date"
+                    onfocus="(this.type='date')"
+                    onblur="(this.type='text')"
+                  />
+                  <div class="error"></div>
+                </div>
+                <div class="app-form-group small-input flex">
+                  <input
+                    class="app-form-control"
+                    placeholder="Start Time"
+                    id="startTime"
+                    type="text"
+                    onfocus="(this.type='time')"
+                    onblur="(this.type='text')"
+                  />
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div class="app-flex">
+                <div class="app-form-group small-input flex">
+                  <input
+                    class="app-form-control"
+                    placeholder="Duration in Hrs"
+                    id="duration"
+                    value=""
+                    type="number"
+                  />
+                  <div class="error"></div>
+                </div>
+                <div class="app-form-group small-input flex">
+                  <select
+                    name=""
+                    id="mode"
+                    class="app-form-control"
+                    placeholder="MODE"
+                  >
+                    <option value="Mode">Mode</option>
+                    <option value="Online">Online</option>
+                    <option value="Offline">Offline</option>
+                  </select>
+                  <div class="error"></div>
+                </div>
+              </div>
+              <div>
+                <textarea
+                  cols="35"
+                  rows="3"
+                  maxlength="100"
+                  class="text-area autoresizing"
+                  id="objective"
+                  placeholder="Objective"
+                ></textarea>
+                <div class="flex-row textarea-flex">
+                  <div class="error"></div>
+                  <div class="flex-row">
+                    <span class="span" id="rem-obj-target"
+                      >Remaining characters :
+                    </span>
+                    <span class="span" id="count-obj"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="screen-body-item right">
+              <div class="app-form">
+                <div class="app-form-group flex">
+                  <input
+                    class="app-form-control"
+                    placeholder="Trainer Name"
+                    id="trainerName"
+                    value=""
+                    type="text"
+                  />
+                  <div class="flex-row textarea-flex">
+                    <div class="error"></div>
+                    <div class="flex-row" id="courseFull"></div>
+                  </div>
+                </div>
+                <div class="app-flex end-margin">
+                  <div class="app-form-group small-input flex">
+                    <input
+                      class="app-form-control"
+                      placeholder="End Date"
+                      id="endDate"
+                      value=""
+                      type="text"
+                      onfocus="(this.type='date')"
+                      onblur="(this.type='text')"
+                    />
+                    <div class="error"></div>
+                  </div>
+                  <div class="app-form-group small-input flex">
+                    <input
+                      class="app-form-control"
+                      placeholder="End Time"
+                      id="endTime"
+                      type="text"
+                      onfocus="(this.type='time')"
+                      onblur="(this.type='text')"
+                    />
+                    <div class="error"></div>
+                  </div>
+                </div>
+                <div class="app-flex">
+                  <div class="app-form-group small-input flex">
+                    <select
+                      name=""
+                      id="location"
+                      class="app-form-control"
+                      placeholder="Location"
+                    >
+                      <option value="Location">Location</option>
+                      <option value="Chennai">Chennai</option>
+                      <option value="Bangalore">Bangalore</option>
+                      <option value="Mumbai">Mumbai</option>
+                      <option value="Pune">Pune</option>
+                    </select>
+                    <div class="error"></div>
+                  </div>
+                  <div class="app-form-group small-input flex">
+                    <input
+                      class="app-form-control"
+                      placeholder="Capacity"
+                      id="capacity"
+                      value=""
+                      type="text"
+                    />
+                    <div class="error"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex-tags">
+                <select
+                  name=""
+                  class="tags-select"
+                  placeholder="Enter Tags and Press Enter"
+                  multiple
+                >
+                  <option value="Java">Java</option>
+                  <option value="CSS">CSS</option>
+                  <option value="Springboot">Springboot</option>
+                </select>
+                <div class="error"></div>
+              </div>
+            </div>
+          </div>
+          <div class="textarea">
+            <textarea
+              name=""
+              maxlength="300"
+              id="description"
+              cols="100"
+              rows="3"
+              class="text-area autoresizing"
+              placeholder="Description"
+            ></textarea>
+            <div class="flex-row textarea-flex">
+              <div class="error"></div>
+              <div class="flex-row">
+                <span class="span" id="rem-desc-target"
+                  >Remaining characters :
+                </span>
+                <span class="span" id="count-desc"></span>
+              </div>
+            </div>
+          </div>
+          <div class="textarea details">
+            <textarea
+              name=""
+              maxlength="500"
+              id="details"
+              cols="100"
+              rows="3"
+              class="text-area autoresizing"
+              placeholder="Details"
+            ></textarea>
+            <div class="flex-row textarea-flex">
+              <div class="error"></div>
+              <div class="flex-row">
+                <span class="span" id="rem-det-target"
+                  >Remaining characters :
+                </span>
+                <span class="span" id="count-det"></span>
+              </div>
+            </div>
+          </div>
+          <div class="button"><button class="">ADD COURSE</button></div>
+        </form>
+      </div>
+    </div>
+    <script src="./form.js"></script>
+  </body>
+</html>
