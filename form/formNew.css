@@ -4,11 +4,7 @@ body {
   overflow-x: hidden;
   background-color: #f5f5f5;
 }
-.nav {
-  height: 23px;
-  width: 100vw;
-  background-color: black;
-}
+
 nav {
   height: 60px;
   width: 100vw;
@@ -34,6 +30,17 @@ input {
   font-family: "Inter" !important;
 }
 
+.add-course {
+  color: #46b8a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-course-h1 {
+  margin-bottom: 10px;
+}
+
 .background {
   display: flex;
   min-height: 100vh;
@@ -42,8 +49,8 @@ input {
 .container-div {
   margin: auto;
   padding: 10%;
-  padding-top: 50px;
-  /* background-image: url(../src/container-back-01.svg); */
+  padding-top: 0px;
+  padding-bottom:0px;
 }
 
 .screen-header {
@@ -66,20 +73,19 @@ input {
 .screen-body-item {
   flex: 1;
   padding: 50px;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   padding-top: 10px;
-
 }
 
 .screen-body-item.left {
   display: flex;
   flex-direction: column;
-  padding-left:0px;
+  padding-left: 0px;
 }
 .screen-body-item.right {
   display: flex;
   flex-direction: column;
-  padding-right:0px;
+  padding-right: 0px;
 }
 
 .app-title {
@@ -208,14 +214,13 @@ input {
 }
 
 @media screen and (max-width: 500px) {
-
   .screen-body-item {
     padding: 0;
   }
 }
 
 .textarea {
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   padding-top: 0;
 }
 .text-area {
@@ -246,17 +251,16 @@ input {
   width: 100%;
 }
 
-
 .button {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 10px; 
+  padding-right: 10px;
 }
 
 button {
   height: 3em;
-  width: auto; 
+  width: auto;
   padding: 0.5rem 1rem;
   color: whitesmoke;
   border-radius: 0.375rem;
@@ -296,14 +300,10 @@ select option {
 .flex {
   display: flex;
   flex-direction: column;
+  align-items: start;
+  justify-content: start;
 }
-.flex-tags {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 20px;
-  height:50px
-}
+
 .error {
   color: red;
   font-size: small;
@@ -374,7 +374,7 @@ select option {
   font-weight: bold;
   line-height: 1;
   color: #fff;
-  background-color: #46b8a6; /* Teal background color */
+  background-color: #46b8a6;
   border-radius: 0.25em;
   cursor: pointer;
 }
@@ -388,110 +388,7 @@ select option {
   color: red;
 }
 
-nav {
-  background-color: #f8f9fa;
-  padding: 1rem;
-}
-
-.container-fluid {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar-brand img {
-  width: 250px;
-}
-
-.navbar-nav {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-link {
-  color: #343a40;
-  font-weight: bold;
-  text-decoration: none;
-  padding: 0.5rem;
-  cursor: pointer;
-}
-
-.nav-link:hover {
-  color: #007bff;
-}
-
-.bg-black {
-  background-color: #000;
-  position: relative;
-}
-
-.bg-black img {
-  height: 200px;
-}
-
-.text-white {
-  color: #fff;
-}
-
-.text-6xl {
-  font-size: 3rem;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.justify-content-start {
-  justify-content: flex-start;
-}
-
-.align-items-start {
-  align-items: flex-start;
-}
-
-.h-25rem {
-  height: 25rem;
-}
-
-.p-3 {
-  padding: 1rem !important;
-}
-
-.mx-2 {
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
-.fw-bold {
-  font-weight: bold;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.container {
-  margin: 2rem;
-}
-
-#titles {
-  color: #339f9f;
-  font-size: medium;
-  font-weight: 800;
-  margin-right: 3px;
-}
-
-
 .tags-select {
-  width: 100%;
   padding: 13px 10px;
   border-radius: 3px;
   border: 1px solid #2b2b2b;
@@ -500,58 +397,58 @@ nav {
   font-weight: 500;
   outline: none;
   transition: border-color 0.2s;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .flex-tags {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   padding-bottom: 20px;
   height: auto;
 }
 
-
-/* .select2-container--default.select2-container--open .select2-dropdown {
-  max-height: 500px !important; 
-} */
+.select2-selection{
+ height: 70px;
+}
 
 .select2-container {
-  /* Add your comments here */
-  border: 1px solid #ccc;
-  /* More styles */
+  border: 0.1px solid #727171;
+  border-radius: 5px;
 }
 
-/* Styles for the Select2 dropdown */
-.select2-container--default .select2-dropdown {
-  /* Custom comment for dropdown styles */
-  max-height: 200px;
-  /* Additional dropdown styles */
+.select2-container:focus {
+  border: 0.1px solid #46b8a6;
+  border-radius: 5px;
 }
-.nav-bar{
-  width:100%;
+
+.nav-bar {
+  width: 100%;
   background-color: white;
   height: 45px;
-  padding:14px;
-  padding-left:40px;
+  padding: 14px;
+  padding-left: 40px;
   display: flex;
   text-align: center;
   justify-content: space-between;
 }
 
-.nav-bar img{
-  width:170px;
+.nav-bar img {
+  width: 170px;
 }
-.nav-content{
-  width:17%;
-  display:flex;
+.nav-content {
+  width: 17%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Inter';
+  font-family: "Inter";
   font-weight: 300;
   font-size: small;
-  color:#46b8a6;
+  color: #46b8a6;
   margin-right: 5%;
   cursor: pointer;
 }
 
+.select2-selection__choice__display{
+  color:black !important
+}
