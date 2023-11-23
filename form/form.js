@@ -132,8 +132,8 @@ document.addEventListener("DOMContentLoaded", function () {
     1;
   });
 });
-var charObj = 100;
-var charDesc = 300;
+var charDesc = 100;
+var charObj = 300;
 var charDet = 500;
 var charCou = 100;
 
@@ -147,28 +147,28 @@ o.innerHTML = charObj;
 det.innerHTML = charDet;
 course.innerHTML = charCou;
 
-description.addEventListener("input", () => {
-  var inputValue = description.value;
-  d.innerHTML = charDesc - inputValue.length;
-  if (d.innerHTML == 0) {
-    console.log(d.innerHTML);
-    document.getElementById("rem-desc-target").style.color = "red";
-    document.getElementById("count-desc").style.color = "red";
-  } else {
-    document.getElementById("rem-desc-target").style.color = "";
-    document.getElementById("count-desc").style.color = "";
-  }
-});
-
 objective.addEventListener("input", () => {
   var inputValue = objective.value;
   o.innerHTML = charObj - inputValue.length;
   if (o.innerHTML == 0) {
+    console.log(o.innerHTML);
     document.getElementById("rem-obj-target").style.color = "red";
     document.getElementById("count-obj").style.color = "red";
   } else {
     document.getElementById("rem-obj-target").style.color = "";
     document.getElementById("count-obj").style.color = "";
+  }
+});
+
+description.addEventListener("input", () => {
+  var inputValue = description.value;
+  d.innerHTML = charDesc - inputValue.length;
+  if (d.innerHTML == 0) {
+    document.getElementById("rem-desc-target").style.color = "red";
+    document.getElementById("count-desc").style.color = "red";
+  } else {
+    document.getElementById("rem-desc-target").style.color = "";
+    document.getElementById("count-desc").style.color = "";
   }
 });
 
