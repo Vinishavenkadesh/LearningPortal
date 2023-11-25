@@ -6,7 +6,6 @@ var endTime = document.getElementById("endTime");
 var duration = document.getElementById("duration");
 var trainerName = document.getElementById("trainerName");
 var description = document.getElementById("description");
-window.onerror = true;
 var objective = document.getElementById("objective");
 var details = document.getElementById("details");
 var mode = document.getElementById("mode");
@@ -16,9 +15,29 @@ var place = document.getElementById("location");
 var form = document.getElementById("form");
 var courseFull = document.getElementById("courseFull");
 var tagsSelect = document.getElementsByClassName("tags-select");
+var tagcount = 5;
 
 $(document).ready(function () {
-  $(".tags-select").select2({ tags: true, placeholder: "Enter Tags" });
+  $(".tags-select").select2({
+    // maximumSelectionLength: 5,
+    tags: true,
+    placeholder: "Enter Tags",
+  });
+
+  $(".tags-select").on("select2:select select2:unselect", function (e) {
+    var selectedTags = $(".tags-select").val();
+
+    if (selectedTags.length >= 5) {
+      $(".tags-select").val(selectedTags.slice(0, 4));
+      e.preventDefault();
+    } else {
+      setSuccess(tags);
+    }
+    var msg = tagcount - selectedTags.length;
+    if (msg == 0) {
+      setError(tags, "Only 5 tags allowed!");
+    }
+  });
 });
 
 form.addEventListener("submit", (e) => {
@@ -123,13 +142,12 @@ function setSuccess(element) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var textarea = document.querySelectorAll(".autoresizing");
-  console.log(textarea);
   textarea.forEach((element) => {
     element.addEventListener("input", function () {
       element.style.height = "auto";
       element.style.height = element.scrollHeight + "px";
     });
-    1;
+    
   });
 });
 var charDesc = 100;
@@ -151,7 +169,6 @@ objective.addEventListener("input", () => {
   var inputValue = objective.value;
   o.innerHTML = charObj - inputValue.length;
   if (o.innerHTML == 0) {
-    console.log(o.innerHTML);
     document.getElementById("rem-obj-target").style.color = "red";
     document.getElementById("count-obj").style.color = "red";
   } else {
@@ -200,12 +217,12 @@ courseName.addEventListener("input", () => {
 //validation for Course Name
 courseName.addEventListener("input", function () {
   var courseNameInputValue = courseName.value;
-  var noSpecialCharsRegex = /^[a-zA-Z0-9.\s]+$/;
+  var noSpecialCharsRegex = /^[a-zA-Z0-9.-\s]+$/;
   if (
     !noSpecialCharsRegex.test(courseNameInputValue) &&
     courseNameInputValue.length != 0
   ) {
-    courseName.value = courseNameInputValue.replace(/[^a-zA-Z0-9.\s]/g, "");
+    courseName.value = courseNameInputValue.replace(/[^a-zA-Z0-9.-\s]/g, "");
     setError(courseName, "No Special Characters allowed");
   } else {
     setSuccess(courseName);
@@ -297,8 +314,6 @@ endTime.addEventListener("blur", function () {
     let ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12 || 12;
 
-    console.log(hours, minutes, ampm);
-
     hours = hours < 10 ? "0" + hours : hours;
 
     let formattedEndTime = hours + ":" + minutes + " " + ampm;
@@ -340,15 +355,12 @@ function autoFillDuration() {
     const endTimeString = convertTo24HourFormat(endTime.value);
 
     const [startDay, startMonth, startYear] = startDateString.split("-");
-    console.log(startDay, startMonth, startYear, startTimeString);
     const dateA = new Date(
       `${startYear}-${startMonth}-${startDay}T${startTimeString}`
     );
 
     const [endDay, endMonth, endYear] = endDateString.split("-");
     const dateB = new Date(`${endYear}-${endMonth}-${endDay}T${endTimeString}`);
-
-    console.log(startDateString);
 
     const timeDifference = dateB - dateA;
 
@@ -360,8 +372,6 @@ function autoFillDuration() {
         (timeDifference % (1000 * 60 * 60)) / (1000 * 60)
       );
 
-      console.log(timeDifference, totalHours);
-
       duration.value = `${totalHours} hours and ${remainingMinutes} minutes`;
     }
   } else if (startDate != null && endDate != null) {
@@ -369,7 +379,6 @@ function autoFillDuration() {
     const endDateString = endDate.value;
 
     const [startDay, startMonth, startYear] = startDateString.split("-");
-    console.log(startDay, startMonth, startYear);
     const dateA = new Date(`${startYear}-${startMonth}-${startDay}`);
 
     const [endDay, endMonth, endYear] = endDateString.split("-");
@@ -383,3 +392,7 @@ function autoFillDuration() {
     }
   }
 }
+
+tagsEvent.addEventListener("input", () => {
+  console.log(count.childElementCount);
+});
